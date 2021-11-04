@@ -19,6 +19,7 @@ class RightBoard:
         elem.send_keys(len(current_input_text) * Keys.BACKSPACE)
         elem.send_keys(value)
 
+    # OPERATIONS
     def switch_to_open_orders(self):
         self.click(self.elements.open_orders_tab)
 

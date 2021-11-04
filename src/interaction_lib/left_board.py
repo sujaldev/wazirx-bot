@@ -7,9 +7,6 @@ class LeftBoard:
         self.driver = driver
         self.elements = LeftBoardElements(self.driver)
 
-        # STATE VARIABLES
-        self.search_state = ""
-
     def click(self, elem):
         self.driver.execute_script(
             "arguments[0].click();",
@@ -32,14 +29,13 @@ class LeftBoard:
             raise Exception("Invalid Sort Filter! Try one of these: PAIR, VOLUME OR CHANGE")
 
     def search(self, search_text):
-        self.search_state = search_text
         self.elements.search.send_keys(search_text)
 
     def clear_search(self):
-        self.elements.search.send_keys(
-            len(self.search_state) * Keys.BACKSPACE
+        search_input = self.elements.search
+        search_input.send_keys(
+            len(search_input.get_attribute("value")) * Keys.BACKSPACE
         )
-        self.search_state = ""
 
     def get_currency_dict(self):
         currencies = {}
