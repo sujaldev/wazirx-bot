@@ -42,6 +42,7 @@ Commands for lb (left-board):
 - `get_currency_dict`
 - `switch_currency` argument: string in format CRYPTO-BASE, example: DOGE-INR
 
+![Right Board Diagram](https://sujaldev.github.io/wazirx-bot/assets/right/right-board.png) <br>
 Commands for rb (right-board):
 
 - `switch_to_open_orders`
