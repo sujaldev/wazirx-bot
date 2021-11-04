@@ -14,6 +14,8 @@ class WazirxWeb:
         self.lb = LeftBoard(self.driver)
         self.rb = RightBoard(self.driver)
 
+    # noinspection PyMethodMayBeStatic
+    def start_console(self):
         while True:
             command = input(">>> ").split(" ")
             while len(command) < 3:
