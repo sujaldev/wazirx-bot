@@ -29,4 +29,4 @@ class WazirxWeb:
 
 
 if __name__ == "__main__":
-    WazirxWeb()
+    WazirxWeb().start_console()

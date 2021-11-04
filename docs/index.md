@@ -32,7 +32,7 @@ Sample:
 > `lb` for left-hand side board \
 > `rb` for right-hand side board
 
-![Left Board Diagram](https://sujaldev.github.io/wazirx-bot/assets/left-board.png) <br>
+![Left Board Diagram](https://sujaldev.github.io/wazirx-bot/assets/left/left-board.png) <br>
 Commands for lb (left-board):
 
 - `switch_base_currency` argument: string containing INR, USDT, WRX or BTC
