@@ -4,3 +4,6 @@
 # PYTHON
 venv/
 __pycache__/
+
+# LOCAL
+rough.py
