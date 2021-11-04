@@ -20,25 +20,25 @@ class RightBoard:
         elem.send_keys(value)
 
     # OPERATIONS
-    def switch_to_open_orders(self):
+    def open_orders(self):
         self.click(self.elements.open_orders_tab)
 
-    def switch_to_completed_orders(self):
+    def completed_orders(self):
         self.click(self.elements.completed_orders_tab)
 
-    def switch_to_buy_tab(self):
+    def buy_tab(self):
         self.click(self.elements.buy_tab)
 
-    def switch_to_sell_tab(self):
+    def sell_tab(self):
         self.click(self.elements.sell_tab)
 
-    def input_at_price(self, new_value):
+    def input_buy_at_price(self, new_value):
         self.__input_into(self.elements.at_price_input, new_value)
 
-    def input_amount(self, new_value):
+    def input_amount_to_buy(self, new_value):
         self.__input_into(self.elements.amount_input, new_value)
 
-    def input_total(self, new_value):
+    def input_total_money_to_spend(self, new_value):
         self.__input_into(self.elements.total_input, new_value)
 
     def buy_sell_button(self):

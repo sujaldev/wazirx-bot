@@ -14,7 +14,7 @@ class LeftBoard:
         )
 
     # OPERATIONS
-    def switch_base_currency(self, new_currency):
+    def set_base_currency(self, new_currency):
         try:
             elem = self.elements.base_currencies[new_currency.lower()]
             self.click(elem)
@@ -29,15 +29,18 @@ class LeftBoard:
             raise Exception("Invalid Sort Filter! Try one of these: PAIR, VOLUME OR CHANGE")
 
     def search(self, search_text):
+        self.clear_search()
         self.elements.search.send_keys(search_text)
 
-    def clear_search(self):
+    def clear_search(self, amount=None):
         search_input = self.elements.search
+        if not amount:
+            amount = len(search_input.get_attribute("value"))
         search_input.send_keys(
-            len(search_input.get_attribute("value")) * Keys.BACKSPACE
+            amount * Keys.BACKSPACE
         )
 
-    def get_currency_dict(self):
+    def get_visible_currencies(self):
         currencies = {}
 
         currency_containers = self.elements.currency_list.find_elements(By.TAG_NAME, "a")
@@ -67,13 +70,12 @@ class LeftBoard:
         """
         crypto_code, base_code = currency_code.split("-")
 
-        self.switch_base_currency(base_code)
+        self.set_base_currency(base_code)
 
         self.search(crypto_code)
-        output = self.get_currency_dict()
+        output = self.get_visible_currencies()
         try:
             self.click(output[currency_code.upper()]["element"])
-            self.clear_search()
         except KeyError:
             raise Exception("Invalid Crypto Currency!")
 
